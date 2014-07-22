@@ -1,6 +1,8 @@
 2014-08-19    release 6.7.0
     - Core
         + find_codepoint: added more name aliases for perl6 (LF,FF,CR and NEL)
+        + Regenerated and fixed the iso_8859_1_typetable. Add \x2028, \x2029 and \v
+          to be of cclass newline. [GH #1086, perl6 RT #122341]
     - Build
     - Documentation
         + Updated documentation for StringHandle.readall and FileHandle.readall, which
