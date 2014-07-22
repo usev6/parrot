@@ -236,6 +236,53 @@ typedef struct Parrot_CallContext_attributes {
 #define SETATTR_CallContext_continuation(interp, pmc, value) \
         PARROT_CALLCONTEXT(pmc)->continuation = (value)
 
+/*static*/  PMC  * Parrot_CallContext_clone(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  void  Parrot_CallContext_destroy(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  INTVAL  Parrot_CallContext_elements(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  INTVAL  Parrot_CallContext_exists_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key);
+/*static*/  INTVAL  Parrot_CallContext_exists_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key);
+/*static*/  INTVAL  Parrot_CallContext_exists_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  PMC  * Parrot_CallContext_get_attr_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  INTVAL  Parrot_CallContext_get_integer_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key);
+/*static*/  INTVAL  Parrot_CallContext_get_integer_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key);
+/*static*/  INTVAL  Parrot_CallContext_get_integer_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  FLOATVAL  Parrot_CallContext_get_number_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key);
+/*static*/  FLOATVAL  Parrot_CallContext_get_number_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key);
+/*static*/  FLOATVAL  Parrot_CallContext_get_number_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  PMC  * Parrot_CallContext_get_pmc(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  PMC *  Parrot_CallContext_get_pmc_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key);
+/*static*/  PMC *  Parrot_CallContext_get_pmc_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key);
+/*static*/  PMC *  Parrot_CallContext_get_pmc_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  STRING  * Parrot_CallContext_get_string(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  STRING *  Parrot_CallContext_get_string_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key);
+/*static*/  STRING *  Parrot_CallContext_get_string_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key);
+/*static*/  STRING *  Parrot_CallContext_get_string_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key);
+/*static*/  void  Parrot_CallContext_init(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  void  Parrot_CallContext_mark(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  void  Parrot_CallContext_morph(PARROT_INTERP, ARGMOD(PMC *_self), SHIM(PMC *type));
+/*static*/  void  Parrot_CallContext_push_float(PARROT_INTERP, ARGMOD(PMC *_self), FLOATVAL value);
+/*static*/  void  Parrot_CallContext_push_integer(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL value);
+/*static*/  void  Parrot_CallContext_push_pmc(PARROT_INTERP, ARGMOD(PMC *_self), PMC *value);
+/*static*/  void  Parrot_CallContext_push_string(PARROT_INTERP, ARGMOD(PMC *_self), STRING *value);
+/*static*/  void  Parrot_CallContext_set_attr_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key, PMC *value);
+/*static*/  void  Parrot_CallContext_set_integer_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key, INTVAL value);
+/*static*/  void  Parrot_CallContext_set_integer_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key, INTVAL value);
+/*static*/  void  Parrot_CallContext_set_integer_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key, INTVAL value);
+/*static*/  void  Parrot_CallContext_set_number_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key, FLOATVAL value);
+/*static*/  void  Parrot_CallContext_set_number_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key, FLOATVAL value);
+/*static*/  void  Parrot_CallContext_set_number_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key, FLOATVAL value);
+/*static*/  void  Parrot_CallContext_set_pmc(PARROT_INTERP, ARGMOD(PMC *_self), PMC *value);
+/*static*/  void  Parrot_CallContext_set_pmc_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key, PMC *value);
+/*static*/  void  Parrot_CallContext_set_pmc_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key, PMC *value);
+/*static*/  void  Parrot_CallContext_set_pmc_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key, PMC *value);
+/*static*/  void  Parrot_CallContext_set_string_keyed(PARROT_INTERP, ARGMOD(PMC *_self), PMC *key, STRING *value);
+/*static*/  void  Parrot_CallContext_set_string_keyed_int(PARROT_INTERP, ARGMOD(PMC *_self), INTVAL key, STRING *value);
+/*static*/  void  Parrot_CallContext_set_string_keyed_str(PARROT_INTERP, ARGMOD(PMC *_self), STRING *key, STRING *value);
+/*static*/  void  Parrot_CallContext_set_string_native(PARROT_INTERP, ARGMOD(PMC *_self), STRING *value);
+/*static*/  PMC *  Parrot_CallContext_shift_pmc(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  STRING *  Parrot_CallContext_shift_string(PARROT_INTERP, ARGMOD(PMC *_self));
+/*static*/  void  Parrot_CallContext_unshift_pmc(PARROT_INTERP, ARGMOD(PMC *_self), PMC *value);
+/*static*/  void Parrot_CallContext_nci_backtrace(PARROT_INTERP, ARGMOD(PMC *_self));
 
 #endif /* PARROT_PMC_CALLCONTEXT_H_GUARD */
 

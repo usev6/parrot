@@ -83,31 +83,31 @@ typedef struct Pcc_cell
 /* HEADERIZER BEGIN: static */
 /* Don't modify between HEADERIZER BEGIN / HEADERIZER END.  Your changes will be lost. */
 
-/*static*/ FLOATVAL autobox_floatval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
+static FLOATVAL autobox_floatval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ INTVAL autobox_intval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
-        __attribute__nonnull__(1)
-        __attribute__nonnull__(2);
-
-PARROT_CANNOT_RETURN_NULL
-/*static*/ PMC * autobox_pmc(PARROT_INTERP, ARGIN(Pcc_cell *cell), INTVAL type)
+static INTVAL autobox_intval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ STRING * autobox_string(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
+static PMC * autobox_pmc(PARROT_INTERP, ARGIN(Pcc_cell *cell), INTVAL type)
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ void ensure_positionals_storage(PARROT_INTERP,
+PARROT_CANNOT_RETURN_NULL
+static STRING * autobox_string(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
+        __attribute__nonnull__(1)
+        __attribute__nonnull__(2);
+
+static void ensure_positionals_storage(PARROT_INTERP,
     ARGIN(PMC *self),
     INTVAL size)
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ void ensure_positionals_storage_ap(PARROT_INTERP,
+static void ensure_positionals_storage_ap(PARROT_INTERP,
     ARGIN(PMC *self),
     INTVAL size,
     INTVAL allocated_positionals)
@@ -115,29 +115,29 @@ PARROT_CANNOT_RETURN_NULL
         __attribute__nonnull__(2);
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ Pcc_cell* get_cell_at(PARROT_INTERP, ARGIN(PMC *self), INTVAL key)
+static Pcc_cell* get_cell_at(PARROT_INTERP, ARGIN(PMC *self), INTVAL key)
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ Hash * get_hash(PARROT_INTERP, ARGIN(PMC *SELF))
+static Hash * get_hash(PARROT_INTERP, ARGIN(PMC *SELF))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
 PARROT_CAN_RETURN_NULL
-/*static*/ PMC * get_named_names(PARROT_INTERP, ARGIN(PMC *SELF))
+static PMC * get_named_names(PARROT_INTERP, ARGIN(PMC *SELF))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ void mark_cell(PARROT_INTERP, ARGIN(Pcc_cell *c))
+static void mark_cell(PARROT_INTERP, ARGIN(Pcc_cell *c))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ void mark_hash(PARROT_INTERP, ARGIN(Hash *h))
+static void mark_hash(PARROT_INTERP, ARGIN(Hash *h))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
-/*static*/ void mark_positionals(PARROT_INTERP, ARGIN(PMC *self))
+static void mark_positionals(PARROT_INTERP, ARGIN(PMC *self))
         __attribute__nonnull__(1)
         __attribute__nonnull__(2);
 
@@ -191,7 +191,7 @@ Ensure that C<self> has enough storage space for C<size> positionals.
 
 */
 
-/*static*/ void
+static void
 ensure_positionals_storage(PARROT_INTERP, ARGIN(PMC *self), INTVAL size)
 {
     ASSERT_ARGS(ensure_positionals_storage)
@@ -218,7 +218,7 @@ the the old chunk (if needed).
 
 */
 
-/*static*/ void
+static void
 ensure_positionals_storage_ap(PARROT_INTERP,
                               ARGIN(PMC *self), INTVAL size, INTVAL allocated_positionals)
 {
@@ -264,7 +264,7 @@ Return the cell indexed by C<key>.
 */
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ Pcc_cell*
+static Pcc_cell*
 get_cell_at(PARROT_INTERP, ARGIN(PMC *self), INTVAL key)
 {
     ASSERT_ARGS(get_cell_at)
@@ -284,7 +284,7 @@ Return C<cell> as an INTVAL.
 
 */
 
-/*static*/ INTVAL
+static INTVAL
 autobox_intval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
 {
     ASSERT_ARGS(autobox_intval)
@@ -315,7 +315,7 @@ Return C<cell> as an FLOATVAL.
 
 */
 
-/*static*/ FLOATVAL
+static FLOATVAL
 autobox_floatval(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
 {
     ASSERT_ARGS(autobox_floatval)
@@ -347,7 +347,7 @@ Return C<cell> as an STRING.
 */
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ STRING *
+static STRING *
 autobox_string(PARROT_INTERP, ARGIN(const Pcc_cell *cell))
 {
     ASSERT_ARGS(autobox_string)
@@ -379,7 +379,7 @@ Return C<cell> as a PMC.
 */
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ PMC *
+static PMC *
 autobox_pmc(PARROT_INTERP, ARGIN(Pcc_cell *cell), INTVAL type)
 {
     ASSERT_ARGS(autobox_pmc)
@@ -418,7 +418,7 @@ Return the hash for this CallContext, creating a hash if necessary.
 */
 
 PARROT_CANNOT_RETURN_NULL
-/*static*/ Hash *
+static Hash *
 get_hash(PARROT_INTERP, ARGIN(PMC *SELF))
 {
     ASSERT_ARGS(get_hash)
@@ -447,7 +447,7 @@ Mark this cell's GCable, if needed.
 
 */
 
-/*static*/ void
+static void
 mark_cell(PARROT_INTERP, ARGIN(Pcc_cell *c))
 {
     ASSERT_ARGS(mark_cell)
@@ -478,7 +478,7 @@ Mark this positional's GCables, if needed.
 
 */
 
-/*static*/ void
+static void
 mark_positionals(PARROT_INTERP, ARGIN(PMC *self))
 {
     ASSERT_ARGS(mark_positionals)
@@ -507,7 +507,7 @@ Mark this hash's GCables, if needed.
 */
 
 /* don't look now, but here goes encapsulation.... */
-/*static*/ void
+static void
 mark_hash(PARROT_INTERP, ARGIN(Hash *h))
 {
     ASSERT_ARGS(mark_hash)
@@ -527,7 +527,7 @@ Return all named arguments in a FixedStringArray.
 */
 
 PARROT_CAN_RETURN_NULL
-/*static*/ PMC *
+static PMC *
 get_named_names(PARROT_INTERP, ARGIN(PMC *SELF))
 {
     ASSERT_ARGS(get_named_names)
@@ -550,6 +550,7 @@ get_named_names(PARROT_INTERP, ARGIN(PMC *SELF))
 
 #include "parrot/packfile.h"
 #include "pmc/pmc_sub.h"
+#if 0
 #line 552 "./src/pmc/callcontext.c"
 /*static*/  PMC  * Parrot_CallContext_clone(PARROT_INTERP, ARGMOD(PMC *_self));
 /*static*/  void  Parrot_CallContext_destroy(PARROT_INTERP, ARGMOD(PMC *_self));
@@ -598,8 +599,11 @@ get_named_names(PARROT_INTERP, ARGIN(PMC *SELF))
 /*static*/  STRING *  Parrot_CallContext_shift_string(PARROT_INTERP, ARGMOD(PMC *_self));
 /*static*/  void  Parrot_CallContext_unshift_pmc(PARROT_INTERP, ARGMOD(PMC *_self), PMC *value);
 /*static*/  void Parrot_CallContext_nci_backtrace(PARROT_INTERP, ARGMOD(PMC *_self));
+#endif
+
 void    Parrot_CallContext_class_init(PARROT_INTERP, int, int);
 void    Parrot_CallContext_ro_class_init(PARROT_INTERP, int, int);
+
 /*static*/  PMC  *
 Parrot_CallContext_clone(PARROT_INTERP, ARGMOD(PMC *_self))
 {
